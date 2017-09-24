@@ -1,7 +1,7 @@
 FROM fiorix/crosstool-ng-arm
 
 RUN apt-get update
-RUN apt-get install -y git autoconf
+RUN apt-get install -y git autoconf gettext libtool
 
 RUN git clone git://git.linuxtv.org/v4l-utils.git /usr/src/v4l-utils
 WORKDIR /usr/src/v4l-utils
