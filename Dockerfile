@@ -6,7 +6,7 @@ RUN apt-get install -y git autoconf
 RUN git clone git://git.linuxtv.org/v4l-utils.git /usr/src/v4l-utils
 WORKDIR /usr/src/v4l-utils
 RUN ct-ng-env ./bootstrap.sh
-RUN ct-ng-env ./configure --host=arm-unknown-linux-gnueabi --without-jpeg --enable-static --cross-prefix='/opt/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-' --extra-cflags='-march=armv6' --extra-ldflags='-march=armv6' --prefix=/opt/ffmpeg
+RUN ct-ng-env ./configure --host=arm-unknown-linux-gnueabi --without-jpeg --enable-static --prefix=/opt/ffmpeg
 RUN ct-ng-env make
 RUN ct-ng-env make install
 
