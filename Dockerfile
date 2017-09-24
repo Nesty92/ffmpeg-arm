@@ -5,7 +5,9 @@ RUN apt-get install -y git autoconf gettext libtool
 
 RUN git clone git://git.linuxtv.org/v4l-utils.git /usr/src/v4l-utils
 WORKDIR /usr/src/v4l-utils
-RUN ct-ng-env ./bootstrap.sh
+RUN ct-ng-env export PATH=/opt/x-tools/arm-unknown-linux-gnueabi/bin:$PATH && \
+              export PKG_CONFIG_LIBDIR=/opt/ffmpeg/lib && \
+              ./bootstrap.sh
 RUN ct-ng-env ./configure --host=arm-unknown-linux-gnueabi --without-jpeg --enable-static --prefix=/opt/ffmpeg
 RUN ct-ng-env make
 RUN ct-ng-env make install
